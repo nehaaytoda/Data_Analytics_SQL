@@ -1,0 +1,21 @@
+CREATE FUNCTION DATEDIFF_YEAR(start_date DATE, end_date DATE)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    RETURN YEAR(end_date) - YEAR(start_date);
+END
+
+CREATE FUNCTION DATEDIFF_MONTH(start_date DATE, end_date DATE)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    RETURN (YEAR(end_date) * 12 + MONTH(end_date))
+         - (YEAR(start_date) * 12 + MONTH(start_date));
+END
+
+CREATE FUNCTION DATEDIFF_DAY(start_date DATE, end_date DATE)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    RETURN DATEDIFF(end_date, start_date);
+END
